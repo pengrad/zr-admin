@@ -6,12 +6,12 @@ var zrApp = angular.module('app', ['ngRoute', 'ui.bootstrap', 'firebase']);
 
 zrApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
-    $locationProvider.html5Mode(true);
+//    $locationProvider.html5Mode(true);
 
     $routeProvider.
-        when('/coupons', {templateUrl: 'admin_view/html/coupons.html', controller: CouponCtrl}).
-        when('/game', {templateUrl: 'admin_view/html/game.html', controller: GameCtrl}).
-        when('/offer', {templateUrl: 'admin_view/html/offer.html', controller: OfferCtrl}).
+        when('/coupons', {templateUrl: 'html/coupons.html', controller: CouponCtrl}).
+        when('/game', {templateUrl: 'html/game.html', controller: GameCtrl}).
+        when('/offer', {templateUrl: 'html/offer.html', controller: OfferCtrl}).
         otherwise({redirectTo: '/coupons'});
 }]);
 
