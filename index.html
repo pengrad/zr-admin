@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script src="//cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
+    <script src="//cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+
+    <script src="js/lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
+
+    <script src="js/ng/app.js"></script>
+    <script src="js/ng/controllers.js"></script>
+
+    <script src="js/logic/query.js"></script>
+
+</head>
+
+<body ng-controller="MainCtrl">
+
+<div style="float:right">
+    <p><a class="btn" href="/coupons">Coupons</a></p>
+
+    <p><a class="btn" href="/offer">Offers</a></p>
+
+    <p><a class="btn" href="/game">Games</a></p>
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3>I'm a modal!</h3>
+    </div>
+    <div class="modal-body">
+        <textarea ng-model="result" style="width: 95%;height: 300px;"></textarea>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+    </div>
+</script>
+
+<div ng-view></div>
+
+</body>
+</html>

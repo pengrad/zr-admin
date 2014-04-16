@@ -1,0 +1,80 @@
+<div style="padding: 40px;">
+    <form name="mainForm" ng-submit="send()">
+        <!--<input ng-model="gameId" placeholder="GameId" type="number" min="1" max="9999999999">-->
+        <!--<input ng-model="developerId" placeholder="DeveloperId" type="number" min="1" max="9999999999">-->
+        <div class="inline-block">
+            <div style="margin-right: 20px">
+                <select style="height: 160px" multiple ng-model="category" ng-options="o.name for o in categories"
+                        required></select>
+            </div>
+            <div>
+                <label class="checkbox"><input type="checkbox" ng-model="isVerify">isVerify</label>
+                <label class="checkbox"><input type="checkbox" ng-model="isVisible">isVisible</label>
+                <label class="checkbox"><input type="checkbox" ng-model="isFeature">isFeature</label>
+            </div>
+        </div>
+
+        <div>
+            <input type="text" ng-model="linkText" size="30" placeholder="link to game" ng-enter="addLink()">
+            <select ng-model="platform" ng-options="o.name for o in platforms"></select>
+            <button style="vertical-align: top;" class="btn" type="button" ng-click="addLink()">Add</button>
+        </div>
+        <ul>
+            <li ng-repeat="link in links" style="margin-top: 5px; list-style-type: none;">
+                <button class="btn btn-danger" ng-click="del(link.id)">Remove</button>
+                <span>[{{link.platform.name}}]</span>
+                <span><a href={{link.link}} target="_blank">{{link.link}}</a></span>
+            </li>
+        </ul>
+
+        <!--Text -->
+
+        <div class="dictionary">
+            <div>
+                <label class="checkbox"><input type="checkbox" class="checkbox-inline" ng-model="textEn">English
+                    Text</label>
+                <label><input type="text" ng-disabled="!textEn" ng-model="enTitle" size="30" placeholder="Title"
+                              required></label>
+                <label>Short Desc<textarea ng-disabled="!textEn" ng-model="enShort" required></textarea></label>
+                <label>Full Desc<textarea class="textbox-full-desc" ng-disabled="!textEn" ng-model="enFull"
+                                          required></textarea></label>
+            </div>
+            <div>
+                <label class="checkbox"><input type="checkbox" ng-model="textRu">Rus Text</label>
+                <label><input type="text" ng-disabled="!textRu" ng-model="ruTitle" size="30" placeholder="Title"
+                              required></label>
+                <label>Short Desc<textarea ng-disabled="!textRu" ng-model="ruShort" required></textarea></label>
+                <label>Full Desc<textarea class="textbox-full-desc" ng-disabled="!textRu" ng-model="ruFull"
+                                          required></textarea></label>
+            </div>
+        </div>
+
+        <!--Images-->
+
+        <div class="inline-label">
+            <div>
+                <label class="checkbox"><input type="checkbox" ng-model="enLogo" disabled>Logo</label>
+                <select ng-model="logoFormat" class="input-small" ng-options="o.name for o in imageFormats"
+                        ng-disabled="!enLogo"></select>
+                <label class="checkbox"><input type="checkbox" ng-model="ruLogo" ng-disabled="!enLogo">Rus Logo</label>
+            </div>
+            <div>
+                <label class="checkbox"><input type="checkbox" ng-model="enBanner" ng-change="ruBanner = enBanner">Banner</label>
+                <select ng-model="bannerFormat" class="input-small" ng-options="o.name for o in imageFormats"
+                        ng-disabled="!enBanner"></select>
+                <label class="checkbox"><input type="checkbox" ng-model="ruBanner" ng-disabled="!enBanner">Rus
+                    Banner</label>
+            </div>
+            <div>
+                <span style="vertical-align: 20%;">Screens count:</span>
+                <input class="input-xmini" ng-model="screenCount" type="number" min="1" required>
+                <select ng-model="screenFormat" class="input-small" ng-options="o.name for o in imageFormats"></select>
+                <label class="checkbox"><input type="checkbox" ng-model="ruScreens">Rus Screens</label>
+            </div>
+        </div>
+
+
+        <input class="btn" type="submit">
+    </form>
+
+</div>

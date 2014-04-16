@@ -1,0 +1,53 @@
+<div>
+
+    <input ng-model="offerId" placeholder="OfferId" type="number" min="1" max="9999999999">
+    <input ng-model="brandId" placeholder="BrandId" type="number" min="1" max="9999999999">
+    <br>
+    <input type="checkbox" ng-model="isVerify">isVerify
+    <input type="checkbox" ng-model="isFeature">isFeature<br>
+    Currency <select ng-model="currency" ng-options="o.name for o in currencies" required></select>
+    <input ng-model="discountMoney" placeholder="DiscountMoney" type="number" min="1" max="9999999999"><br>
+    Offer type <select ng-model="offerType" ng-options="o.name for o in offerTypes" required></select>
+    <input ng-model="couponPts" placeholder="Coupon ZPts Price" type="number" min="0" max="9999999999"><br>
+    Offer Coupon Algorithm <select ng-model="couponAlg" ng-options="o.name for o in couponAlgs" required></select>
+    <input ng-model="couponLimit" placeholder="Coupon Limit Count" type="number" min="0" max="9999999999"><br>
+    Country
+    <select ng-model="country" ng-options="o.name for o in countries">
+        <option value="">-- For all --</option>
+    </select><br>
+    <input ng-model="url" placeholder="Url" type="url">
+    <input ng-model="urlName" placeholder="UrlName" type="text"><br>
+    Offer Categories:<br>
+    <select multiple ng-model="cats" ng-options="o.name for o in categories" required></select>
+    <br>
+    Offer Images:
+    <form ng-submit="addImage()">
+        <li ng-repeat="image in images">
+            <span>[{{image.type.name}}]</span>
+            <span>{{image.url}}</span>
+            <a href="" ng-click="removeImage(image.id)">Удалить</a>
+        </li>
+
+        <select ng-model="imageType" ng-options="o.name for o in imageTypes" required></select>
+        <input ng-model="imageUrl" type="text" placeholder="Image Url">
+        <input class="btn" value="add" type="submit">
+    </form>
+
+    Options and Conditions:
+    <form ng-submit="addOfferOption()">
+        <li ng-repeat="image in images">
+            <span>[{{image.type.name}}]</span>
+            <span>{{image.url}}</span>
+            <a href="" ng-click="removeImage(image.id)">Удалить</a>
+        </li>
+
+        <select ng-model="offerOption" ng-options="o.name for o in offerOptions" required></select>
+        <input type="text" ng-model="imageUrl" placeholder="Rus Text">
+        <input type="text" ng-model="imageUrl" placeholder="Eng Text">
+        <input class="btn" value="add" type="submit">
+    </form>
+
+
+    <input type="submit" class="btn-primary" value="Go" ng-click="submit()">
+
+</div>
