@@ -1,0 +1,49 @@
+.dictionary div {
+    display: inline-block;
+    width: 40%;
+}
+
+.dictionary div * {
+    width: 90%;
+}
+
+.file-upload {
+    text-align: center;
+    overflow: hidden;
+    width: 100px;
+    height: 25px;
+}
+
+.file-upload input[type=file] {
+    margin-top: -50px;
+    margin-left: -410px;
+    -moz-opacity: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    font-size: 150px;
+    height: 100px;
+}
+
+.inline-block > div {
+    display: inline-block;
+}
+
+.inline-label > div > label {
+    display: inline-block;
+    vertical-align: 20%;
+}
+
+.input-xmini {
+    width: 50px;
+}
+
+.textbox-full-desc {
+    height: 400px;
+}
+
+.textbox-codes {
+    width: 500px;
+    height: 300px;
+    background: url('../img/bg-track-box.gif');
+    font: 16px/25px Arial, sans-serif;
+}

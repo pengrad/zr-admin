@@ -1,0 +1,15 @@
+<div>
+    <form name="formCodes" ng-submit="sendCodes()">
+        <select ng-model="offer" ng-options="o.name for o in offers" required
+                ng-disabled="inputId"></select>
+        <input ng-model="inputId" placeholder="OfferId" type="number" name="ooo" min="1" max="9999999999">
+
+        <p>
+            <span>Codes count: {{codesArray().length}}</span>
+            <input type="submit" value="Go">
+        </p>
+
+        <p><textarea class="textbox-codes" ng-model="codes" required></textarea></p>
+    </form>
+</div>
+</div>
