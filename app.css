@@ -44,6 +44,6 @@
 .textbox-codes {
     width: 500px;
     height: 300px;
-    background: url('../img/bg-track-box.gif');
+    background: url('components/img/bg-track-box.gif');
     font: 16px/25px Arial, sans-serif;
 }
