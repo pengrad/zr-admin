@@ -2,22 +2,14 @@
  * Created by stas on 16.04.14.
  */
 
-var zrApp = angular.module('app', ['ngRoute', 'ui.bootstrap', 'firebase']);
+var zrApp = angular.module('app', ['ngRoute', 'ui.bootstrap']);
 
-zrApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-
-//    $locationProvider.html5Mode(true);
-
+zrApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/coupons', {templateUrl: 'html/coupons.html', controller: CouponCtrl}).
         when('/game', {templateUrl: 'html/game.html', controller: GameCtrl}).
         when('/offer', {templateUrl: 'html/offer.html', controller: OfferCtrl}).
         otherwise({redirectTo: '/coupons'});
-}]);
-
-zrApp.factory("OfferService", ["$firebase", function ($firebase) {
-    var ref = new Firebase('https://pengrad-zr.firebaseio.com/offer_list');
-    return $firebase(ref);
 }]);
 
 zrApp.controller('MainCtrl', ['$scope', '$modal', function ($scope, $modal) {
@@ -33,7 +25,6 @@ zrApp.controller('MainCtrl', ['$scope', '$modal', function ($scope, $modal) {
             }
         });
     });
-
 
     var ModalInstanceCtrl = function ($scope, $modalInstance, result) {
 
