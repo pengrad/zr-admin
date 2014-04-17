@@ -2,25 +2,16 @@
  * Created by stas on 16.04.14.
  */
 
-function CouponCtrl($scope) {
+function CouponCtrl($scope, $http) {
     $scope.offers = [
         {"id": -1, "name": "Loading offers..."}
     ];
     $scope.offer = $scope.offers[0];
 
-//    $scope.offers = $firebase(new Firebase('https://pengrad-zr.firebaseio.com/offer_list'));
-//    $scope.offers = OfferService;
-
-    var offerRef = new Firebase('https://pengrad-zr.firebaseio.com/offer_list');
-    offerRef.on('value', function (data) {
-        $scope.offers = data.val();
+    $http.get("https://pengrad-zr.firebaseio.com/offer_list.json").success(function (data) {
+        $scope.offers = data;
         $scope.offer = $scope.offers[0];
     });
-
-//    $http.get("/data/offers").success(function (data) {
-//        $scope.offers = data;
-//        $scope.offer = $scope.offers[0];
-//    });
 
     $scope.codes = "";
 
@@ -38,7 +29,7 @@ function CouponCtrl($scope) {
     };
 }
 
-function GameCtrl($scope, $http) {
+function GameCtrl($scope) {
     var s = $scope;
 
     s.isVerify = true;
