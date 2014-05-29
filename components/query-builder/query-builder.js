@@ -50,7 +50,7 @@ insert game (GameId, DeveloperId, GameDatePublish, GameHash, GameVersion, isVeri
         query += "insert game_platform_cross (GameId, PlatformId, GameLink) values\n";
         query += "(@gameid, {0}, '{1}')".f(data.links[0].platform.id, data.links[0].link);
         for (var i = 1; i < data.links.length; i++)
-            query += ", (@gameid, {0}, '{1}')".f(data.links[0].platform.id, data.links[0].link);
+            query += ", (@gameid, {0}, '{1}')".f(data.links[i].platform.id, data.links[i].link);
         query += ";\n\n";
     }
 
